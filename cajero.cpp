@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
     int opcion, Dui = 123456789, cuenta = 123456;
-    double saldo = 200.00, retirar, depositar;
+    double saldo = 200.00, retirar, depositar, monto;
 
     cout << "Ingresa tu DUI (Sin guiones)" << endl;
     cin >> Dui;
@@ -34,17 +34,21 @@ int main()
         {
         case 1:
             cout << "Ingresa la cantidad de dinero que quieres depositar" << endl;
+            saldo = 200.00;
             cin >> depositar;
             cout << "Tu saldo era de $" << saldo << endl;
             cout << "Tu saldo actual es de $" << saldo + depositar << endl;
+            monto = saldo + depositar;
             break;
         case 2:
+            monto = saldo + depositar;
             cout << "Ingresa la cantidad de dinero que quieres retirar" << endl;
             cin >> retirar;
             if (retirar <= 200)
             {
-                cout << "Tu saldo era de $" << endl;
-                cout << "Tu saldo actual es de $" << saldo - retirar << endl;
+                monto = saldo + depositar;
+                cout << "Tu saldo era de $" << monto << endl;
+                cout << "Tu saldo actual es de $" << monto - retirar << endl;
             }
             else if (retirar > 200)
             {
@@ -52,7 +56,8 @@ int main()
             }
             break;
         case 3:
-            cout << "Monto disponible en la cuenta" << saldo << endl;
+        monto = saldo - retirar;
+            cout << "Monto disponible en la cuenta $" << monto << endl;
             break;
         case 4:
             cout << "Gracias por usar el programa" << endl;
